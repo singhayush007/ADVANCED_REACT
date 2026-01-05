@@ -1,19 +1,23 @@
-import './App.jsx'
-import Navbar from './components/Navbar.jsx'
-import useMyStore from './store.js'
+import { use } from "react";
+import "./App.jsx";
+import Navbar from "./components/Navbar.jsx";
+import useMyStore from "./store.js";
 
 const App = () => {
+  const state = useMyStore();
+  console.log(state);
 
   return (
-    <div>
+    <div className="bg-red-500">
+      Hello
       <Navbar />
     </div>
-  )
-}
-export default App
+  );
+};
+export default App;
 
-
-{/*
+{
+  /*
 
   Global State (Store)
 
@@ -29,9 +33,11 @@ export default App
   Create Store
   Use Store
   
-*/}
+*/
+}
 
-{/*
+{
+  /*
 
   1. create -> use
   2. set karne ke liye --> set(), and get karne ke liye --> get()
@@ -41,4 +47,5 @@ export default App
   6. persist middleware --> to save date into local or session storage
   7. devtools middleware --> visual representation of state and actions
   
-*/}
+*/
+}
