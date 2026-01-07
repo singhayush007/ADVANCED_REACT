@@ -34,17 +34,66 @@
 
 
 
-import { create } from 'zustand'
+// import { create } from 'zustand'
 
-const useMyStore = create ((set)=>({
+// const useMyStore = create ((set)=>({
     // SET ek function hai jo merge karta hai naye state ko purane state ke saath
-    name : 'Ayush Singh',
-    count : 1,
-    increment : ()=>{
-        set({
-            count : 2
-        })
+    // name : 'Ayush Singh',
+//     count : 1,
+//     increment : ()=>{
+//         set({
+//             count : 2
+//         })
+//     }
+// }))
+
+// export default useMyStore;
+
+
+
+// Use of SET 
+// import { create } from "zustand";
+
+// const useMyStore = create((set)=>{
+//     return {
+//         name : 'ayush Singh',
+//         count : 1,
+//         increment : () => {
+//             set((state)=>{
+//                 return {
+//                     count : state.count+ 1
+//                 }
+//             })
+//         }
+//     }
+// })
+
+// export default useMyStore;
+
+
+
+// Use of GET 
+
+import {create} from 'zustand';
+
+const useMyStore = create((set, get)=>{
+    return {
+        name : 'ayush Singh',
+        count : 1,
+        increment : ()=>{
+            set((state)=>{
+                return {
+                    count : state.count + 1
+                }
+            })
+        },
+        capitalizeName : ()=>{
+            const {name } = get();
+            set({
+                name : name.charAt(0).toUpperCase() + name.slice(1)     
+            })
+        }
     }
-}))
+})
 
 export default useMyStore;
