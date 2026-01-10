@@ -1,42 +1,56 @@
-import React from "react";
-import Wrapper from "../components/Wrapper";
+import { useEffect } from "react";
+import Wrapper from "../component/Wrapper";
+import { useNewsContext } from "../context/NewsContext";
+import Loader from "../component/Loader";
 
-const News = ({}) => {
+const News = ({ className }) => {
+  const { news, setNews, fetchNews, loading } = useNewsContext();
+
+  // load data on initial render
+  useEffect(() => {
+    (async () => {
+      const data = await fetchNews();
+      setNews(data.articles);
+    })();
+  }, []);
+
+  if (loading) return <Loader className={"w-fit m-auto py-24 mb-32"} />;
+
   return (
-    <>
-      <Wrapper>
-        <div className="grid grid-cols-4 gap-6">
-          <NewsCard />
-          <NewsCard />
-          <NewsCard />
-          <NewsCard />
-        </div>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <div className={`grid grid-cols-4 gap-6 ${className}`}>
+        {news.map((newsDetails, index) => {
+          if (!newsDetails.urlToImage) return null;
+          return <NewsCard key={index} details={newsDetails} />;
+        })}
+      </div>
+    </Wrapper>
   );
 };
 
-const NewsCard = () => {
+const NewsCard = ({ details }) => {
   return (
     <div className="card bg-base-200 shadow-sm">
       <figure>
         <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+          className="w-full aspect-video object-contain"
+          src={details?.urlToImage}
           alt="Shoes"
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Card Title</h2>
-        <p>
-          A card component has a figure, a body part, and inside body there are
-          title and actions parts
-        </p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+        <h2 className="card-title line-clamp-2">{details?.title}</h2>
+        <p className="line-clamp-3">{details.description}</p>
+        <div className="card-actions justify-end mt-4">
+          <button
+            onClick={() => window.open(details.url)}
+            className=" badge-outline btn"
+          >
+            Read More
+          </button>
         </div>
       </div>
     </div>
   );
 };
-
 export default News;
