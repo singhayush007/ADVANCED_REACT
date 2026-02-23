@@ -12,7 +12,7 @@ const Users = () => {
             localStorage.setItem('data', JSON.stringify(data))
         })()
 
-        return ()=>{
+        return () => {
             setData([]);
             localStorage.clear();
         }

@@ -1,0 +1,31 @@
+React Memo : React Memo is a Higher order Component which takes another component as a argument and return Enhanced component.
+
+- HOC (Component) -> hoc -> Enhanced component 
+- React.memo shallow comparison karta hai , issliye reference statbility bahut kam hoti hai.
+
+# Primitive Data Types: 
+1: String 
+2: Symbol
+3: Number 
+4: Null
+5: Boolena 
+6: Undefined
+
+# Refenrece Type: 
+
+1: Object
+2: Array
+3: Function
+
+
+#Quick Recap:
+
+1: Parent jab jab render hota hai chid component bhi render hota hai bhale hi child component kitna hi expensive ho.
+
+2: Rendering Prevent karne ke liye hum rect memo ka use karte hai.
+
+3: By default ye primitive value k saath proper work karta hai and unnecessary render ko rokta hai , lekin refenrecne type k saath ye expected tareeke se work nahi karta hai (Ynha per shallow comparison karta hai) kyki jab jab render hota hai naya reference ban jata hai.
+
+4: Reference stability k liye hum useState , useMemo , useCallback ka use karte hai.
+
+5: Conclusion ye hai ki , react memo ,ast kaam karta hai , lekin jyada effective useMemo and useCallback ke saath hota hai , that measn react memo , useState , useMemo , useCallback Ka use karke react me jyda optimization kia jaa skata hai.
