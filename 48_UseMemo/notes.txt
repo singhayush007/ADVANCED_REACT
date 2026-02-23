@@ -1,0 +1,3 @@
+useMemo: useMemo React ka hook hai jo expensive calculation ke result ko cache karta hai taaki unnecessary re-computation na ho. Basically useMemo value ko memoize karta hai . 
+
+
