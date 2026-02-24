@@ -1,0 +1,17 @@
+useCallback: Lifecycle , react memo , useMemo
+
+Every re render  = function are recreated 
+Even if logix is same , function reference changes
+
+#useCallback is a React hook , that memoize a function , so the same function reference is reused between renders unless dependencies changes.
+
+
+
+// When we not use useCallback: 
+->  Jab Function as a props nahi paas kar rahe hote toh hum nahi use karte hai useCallback Hook .
+
+->  Small application and light weigt components me hum nhi use kar rhe hote hai useCallback hook.
+
+// Difference between useMemo and useCallback 
+
+-> useMemo - value memoize karta hai and useCallback -  function memoize karta hai.
