@@ -1,0 +1,19 @@
+1: Normally React Apps bundel all javascript files into one big file during rendering.
+
+2: As the app grows , bundle size becomes huge so it occurs app slow loading.
+
+# Code Splitting : So , by the help of code splitting it shows only that things which are necessary at that time , not everything (means it bundles only necessry things during navigation).
+
+-> RESULT: 
+
+- Faster intial loading.
+- Better performance 
+- Less JS Downaload 
+- Better User Experience 
+
+# Type of Code Splitting 
+1: Component Based Splitting
+2: Route Based Splitting
+3: Library Based Splitting
+
+
